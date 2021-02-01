@@ -193,3 +193,282 @@ PSD是网页的设计稿格式
 4.制作HTML结构。我们还是遵循，现有结构，后有样式的原则。结构永远最重要
 
 5，所以，先理清楚布局结构，再写代码尤为重要，这需要我们多写多积累。
+
+### 定位
+
+为什么需要定位：标准流和浮动都不能实现
+
+定位：将盒子定道某个位置
+
+定位=定位模式+边偏移
+
+定位模式用于指定一个元素再文档中的定位方式，边偏移则决定该元素的最终位置
+
+#### 静态定位
+
+```
+选择器 {position: static}
+```
+
+#### 相对定位
+
+```
+选择器 {position: relative}
+```
+
+参照自己原来的点进行定位
+
+原来位置继续保留（不脱标）
+
+#### 绝对定位
+
+```
+选择器{position: absolute}
+```
+
+以父元素为边
+
+如果没有父元素或者父元素没有定位，仍然以浏览器边定位
+
+以最近一级带有定位的边为参照点
+
+绝对定位不再占有之前的位置（脱标）
+
+子绝父相用得比较多
+
+#### 固定定位fiexd（重要）
+
+```
+选择器{
+position: fixed
+}
+```
+
+可视窗口的位置，和父元素没有任何关系
+
+固定位置不占用位置（脱标）例：两边广告
+
+小算法：
+
+先left：50%，再margin-left：50%
+
+#### 粘性定位 sticky
+
+必须要有 left,top,right,bottom其中一个
+
+#### 定位的叠放次序Z-index
+
+值大的压住值小的
+
+数值后面没有单位
+
+标准流和浮动定位没有这个属性
+
+#### 绝对定位盒子的居中算法
+
+加了绝对定位的盒子不能margin：0 auto居中
+
+```
+position: absolute
+left:50%
+margin-left:100px 让盒子移动自身宽度的一半
+```
+
+#### 定位的拓展
+
+1.行内元素添加绝对定位或者固定定位，可以直接设置高度和宽度
+
+2.块级元素添加绝对或固定定位，如果不给宽度或者高度，默认大小是内容的大小
+
+脱标的盒子不会发生塌陷
+
+
+
+浮动的元素不会压住盒子 里的文字
+
+绝对定位会完全压住
+
+如果一个盒子既有left又有right，执行left
+
+### 元素的显示和隐藏
+
+#### display
+
+none：隐藏（位置也会消失）
+
+block：转换为块级元素同时也有显示的意思
+
+#### visibility
+
+和display最大区别就是是否保存原来的位置
+
+还是display用的多
+
+#### overflow溢出
+
+overflow：visibility
+
+​				：hidden
+
+​				：scroll 滚动条
+
+​				：auto 超出加滚动条
+
+### CSS高级技巧导读
+
+#### 精灵图（雪碧）
+
+为什么需要精灵图？
+
+将小图片呵呵曾大图片返回
+
+解决服务器压力过大原因
+
+精确测量大图片中的小图片的位置
+
+用background-position
+
+切片：background：url（.jpg）no-repeat -px -px
+
+#### 字体图标
+
+轻量、灵活
+
+结构样式比较简单的小图标就可以用
+
+复杂的还是需要使用精灵图
+
+字体库 icomoon、icofont
+
+#### 字体图标的引用
+
+设置字体样式为：icomoon
+
+#### css画三角形
+
+```
+        .box1 {
+            width: 0px;
+            height: 0px;
+            border-left:10px solid red ;
+            border-top: 10px solid blue;
+            border-right: 10px solid black;
+            border-bottom: 10px solid green;
+        }
+        .box2 {
+            width: 0px;
+            height: 0px;
+            border: 50px solid transparent;
+            border-top-color:  blue;
+            margin: 100px auto;
+        }
+```
+
+#### 用户界面
+
+鼠标样式 cursor
+
+default默认
+
+pointer小手
+
+move移动
+
+text文字
+
+not-allowed禁止
+
+轮廓线：input{outline：none}
+
+文本域：textarea{resize：none}
+
+#### vertical-align
+
+bottom 底线对齐
+
+middle 中线对齐
+
+#### 溢出文字省略号显示
+
+必须满足三个条件；
+
+1.如果文字显示不开，必须强制一行显示：
+
+white-space：nowrap
+
+2.溢出的部分隐藏起来：
+
+overflow：hidden
+
+3.文字溢出的时候用省略号来显示：
+
+text-overflow：ellipsis
+
+多行文本溢出加省略号
+
+推荐后台人员来做
+
+#### 布局技巧
+
+margin负值
+
+行内块巧妙运用
+
+梯形：三角强化：bottom 0px，left 0px，top改成100px透明，只保留右边边框为直角三角形和矩形合成梯形
+
+#### CSS初始化
+
+### HTML5新特性
+
+IE9+以上才能兼容
+
+新增语义化标签：header\nav\aside\article\section\footer
+
+新增得多媒体标签：audio video
+
+新增input表单拥有多种type类型email，url...
+
+新增表单属性：
+
+### CSS新特性
+
+新增选择器
+
+1.属性选择器：input[value]:选择带value属性得input  权重为10
+
+2.结构伪类选器
+
+：nth-child（n）
+
+n可以是数字、公式、关键字、
+
+：nth-of-type（n）
+
+3.伪元素选择器可以帮助我们利用css创建新标签，而不需要html标签，从而简化html
+
+::before   :始终在盒子的前面
+
+::after	  :始终在盒子的后面
+
+4.伪元素清除浮动：上面有写
+
+css3盒子模型
+
+box-size:盒子的大小就等于width和heigh
+
+滤镜fliter： bluer(px)模糊图像
+
+calc函数
+
+calc（）括号里可以用+-*/
+
+过度
+
+transition
+
+必须在末尾加时间
+
+谁做过度给谁加
+
+#### 狭义的HTML5 CSS3
+
