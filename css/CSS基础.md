@@ -472,3 +472,101 @@ transition
 
 #### 狭义的HTML5 CSS3
 
+#### web服务器
+
+#### css3 2D转换
+
+transform 是css中具有颠覆性的功能之一 ，可以实现位移、旋转、缩放等效果
+
+移动：transform：translate（x，y）
+
+不会影响其他元素的位置
+
+%是相当于移动自身元素长宽度的百分比
+
+旋转：transform：translate（x deg）
+
+可以设置转换的中心点：transform-origin
+
+可以像素设置，也可以位置设置
+
+scale缩放：transform：scale（x，y）
+
+scale（2，2）数字代表倍数：宽高都变为两倍
+
+overflow：hidden 溢出隐藏
+
+转换可以同时使用多个功能
+
+#### 动画（animation）
+
+先定义动画
+
+在调用动画
+
+在@keyframe中定义动画
+
+#### 3D 转换
+
+transfrom： translateZ（ px）
+
+transfrom：translate3d（x，y，z）
+
+##### 透视 perspective
+
+#### 移动流式布局
+
+meta视口标签布局视口宽度应该和理想视口宽度一样
+
+在移动端1px并不等于1物理像素
+
+iphone8里是两倍的关系
+
+Retina（视网膜屏幕）是一种显示技术、可以把更多的w物理像素点压缩在一块屏幕里
+
+流式布局就是百分比布局，不受固定像素的限制
+
+#### flex布局
+
+pc端还是建议传统布局
+
+移动端建议flex布局
+
+display ：flex
+
+felx-drection：row横向排列
+
+col纵向排列
+
+justify-concent：设置主轴排列方式
+
+align-items：设置侧轴排列方式
+
+align-content：设置多行侧轴上的排列方式
+
+flex-flow
+
+#### less
+
+##### css弊端
+
+不方便维护和扩展
+
+新建.less文件
+
+保存自动生成css文件
+
+#### rem适配方案
+
+首先选一套标准尺寸 750为准
+
+用屏幕尺寸 除以 划分的份数得到字体大小
+
+#### 响应式开发
+
+原理：更具媒体查询针对不同宽度的设备进行布局和样式设置，从而适配不同设备的目的
+
+通过布局容器 .containter
+
+#### Bootstrap前端开发框架
+
